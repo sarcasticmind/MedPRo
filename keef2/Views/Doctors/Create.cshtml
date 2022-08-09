@@ -1,0 +1,87 @@
+﻿@model keef2.ViewModels.DoctorViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="fName" class="control-label">First name</label>
+                <input asp-for="fName" class="form-control" />
+                <span asp-validation-for="fName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lName" class="control-label">Last name</label>
+                <input asp-for="lName" class="form-control" />
+                <span asp-validation-for="lName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="mobilePhone" class="control-label">Mobile</label>
+                <input asp-for="mobilePhone" class="form-control" />
+                <span asp-validation-for="mobilePhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="clinicPhone" class="control-label">Clinic Phone</label>
+                <input asp-for="clinicPhone" class="form-control" />
+                <span asp-validation-for="clinicPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="img" class="control-label">Choose Image</label>
+                <input asp-for="img" name="img" class="form-control" type="file" />
+                <span asp-validation-for="img" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="available" /> @Html.DisplayNameFor(model => model.available)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="time" class="control-label"></label>
+                <input asp-for="time" class="form-control" />
+                <span asp-validation-for="time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="government" class="control-label"></label>
+                <input asp-for="government" class="form-control" />
+                <span asp-validation-for="government" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="city" class="control-label"></label>
+                <input asp-for="city" class="form-control" />
+                <span asp-validation-for="city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="offer" class="control-label"></label>
+                <input asp-for="offer" class="form-control" />
+                <span asp-validation-for="offer" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                <label asp-for="offerDate" class="control-label"></label>
+                <input asp-for="offerDate" class="form-control" />
+                <span asp-validation-for="offerDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dept_id" class="control-label">Department</label>
+                <select asp-for="dept_id" class ="form-control" asp-items="ViewBag.dept_id"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

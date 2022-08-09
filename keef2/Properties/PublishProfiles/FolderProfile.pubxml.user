@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\FreeComp\Desktop\server</_PublishTargetUrl>
+    <History>True|2022-04-12T15:34:27.3417700Z;True|2022-04-10T15:57:05.4108929+02:00;False|2022-04-10T15:54:33.5016730+02:00;False|2022-04-10T15:52:56.5843186+02:00;True|2022-04-10T13:39:50.5177993+02:00;True|2022-04-10T06:34:21.4028113+02:00;True|2022-04-10T05:47:10.4228784+02:00;</History>
+  </PropertyGroup>
+</Project>

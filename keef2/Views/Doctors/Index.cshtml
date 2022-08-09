@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Keefa1.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Add New Doctor</a>
+    </p>
+}
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>
+                Doctor Name
+            </th>
+            <th>
+                Mobile
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+              Available
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Government
+            </th>
+            <th>
+                Department
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.fName @item.lName
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mobilePhone)
+            </td>
+            <td>
+                @if(item.img == null)
+                {
+                      <img src="\images\R (1).jpg" style="width:100px; height:100px">  
+                 }else{
+                      <img src="\images\@item.img" style="width:100px; height:100px">  
+                 }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.available)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.government)
+            </td>
+            <td>
+                <a asp-action="details" asp-controller="departments" asp-route-id="@item.depts.id">
+                    @item.depts.name
+                    </a>
+            </td>
+            <td>
+                   @if(User.IsInRole("Admin"))
+                        {
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> <span>|</span>
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a> <span>|</span>
+                        }
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

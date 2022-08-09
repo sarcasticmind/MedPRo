@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Keefa1.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New Department</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+               
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @if(item.img == "")
+                {
+                      <img src="/images/R (1).jpg" style="width:100px; height:100px">  
+                 }else{
+                      <img src="\images\@item.img" style="width:100px; height:100px">  
+                 }
+                </td>
+              
+            <td>
+                @if(User.IsInRole("Admin"))
+                        {
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> <span>|</span>
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a> <span>|</span>
+                        }
+                <a asp-action="Details" asp-route-id="@item.id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
